@@ -1,15 +1,16 @@
 const fs = require("fs");
 
-function cat(fileName) {
+module.exports = function (fileName) {
   fs.readFile(fileName, "utf8", (err, data) => {
     if (err) {
       console.log(err);
+      process.stdout.write("\nprompt > ");
     } else {
       console.log(data);
+      process.stdout.write("\nprompt > ");
     }
   });
-}
-module.exports = cat;
+};
 
 // First, modify your bash.js so that it captures not only the name
 //of the command, but also the argument to that command. Then,
